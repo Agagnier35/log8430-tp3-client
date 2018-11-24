@@ -1,0 +1,9 @@
+com\log8430\client\RestClient.class
+com\log8430\client\FileReader\FileReader.class
+com\log8430\client\model\Invoice.class
+com\log8430\client\RestClient$1.class
+com\log8430\client\model\MostBoughtProduct.class
+com\log8430\client\WebApplication.class
+com\log8430\client\FileReader\InvalidCSVException.class
+com\log8430\client\model\InvoiceItem.class
+com\log8430\client\model\Product.class

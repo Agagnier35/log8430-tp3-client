@@ -30,6 +30,7 @@ public class WebApplication {
 
 						Response response = client.createInvoice(invoiceJSON);
 						System.out.println(response.getStatus());
+						System.out.println(response.getEntity());
 					} catch (IOException e) {
 						System.out.println(e.getMessage());
 					}

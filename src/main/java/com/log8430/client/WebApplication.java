@@ -1,32 +1,34 @@
 package com.log8430.client;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 import javax.ws.rs.core.Response;
 
 import com.log8430.client.FileReader.FileReader;
-import com.log8430.client.model.*;
+import com.log8430.client.model.InvoiceJSON;
 
 public class WebApplication {
 
 	public static void main(String[] args) throws Exception {
-		RestClient client = new RestClient();
+		System.out.println("Enter the url of the service");
+		Scanner consoleScanner = new Scanner(System.in);
+		String urlService = consoleScanner.nextLine().trim();
+
+		RestClient client = new RestClient(urlService);
 		boucle:
 		while (true) {
 			System.out.println("Enter the command (add, get, exit, help)");
-			Scanner consoleScanner = new Scanner(System.in);
 			String command = consoleScanner.nextLine();
 
 			switch (command) {
 				case "add": {
 					System.out.println("Enter the location of the CSV file");
-					String filePath = consoleScanner.nextLine();
+					String filePath = consoleScanner.nextLine().trim().replace("\"", "");
 					try {
-						Invoice invoice = new FileReader(filePath).readFile();
+						InvoiceJSON invoiceJSON = new FileReader(filePath).readFile();
 
-						Response response = client.createInvoice(invoice);
+						Response response = client.createInvoice(invoiceJSON);
 						System.out.println(response.getStatus());
 					} catch (IOException e) {
 						System.out.println(e.getMessage());
@@ -34,8 +36,9 @@ public class WebApplication {
 					break;
 				}
 				case "get": {
-					List<MostBoughtProduct> product = client.getMostBoughtProduct();
-					System.out.println(product.toString());
+					Response response = client.getMostBoughtProduct();
+					System.out.println(response.getStatus());
+					System.out.println(response.getEntity());
 					break;
 				}
 				case "exit": {

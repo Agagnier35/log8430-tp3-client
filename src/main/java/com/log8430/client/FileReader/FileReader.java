@@ -15,24 +15,24 @@ public class FileReader {
 		scanner = new Scanner(file);
 	}
 
-	public Invoice readFile() throws InvalidCSVException {
+	public InvoiceJSON readFile() throws InvalidCSVException {
 		validateScanner("Missing Header");
 		String header = scanner.nextLine();
 
-		Invoice invoice = new Invoice();
-		List<InvoiceItem> invoiceItems = new ArrayList<>();
+		InvoiceJSON invoiceJSON = new InvoiceJSON();
+		List<InvoiceItemJSON> invoiceItemJSONS = new ArrayList<>();
 		while (scanner.hasNextLine()) {
 			String productString = scanner.nextLine();
 			String[] productParts = productString.split(SEPARATOR);
 
-			Product product = new Product(productParts[0], Double.parseDouble(productParts[1]));
+			ProductJSON productJSON = new ProductJSON(productParts[0], Double.parseDouble(productParts[1]));
 			int quantity = Integer.parseInt(productParts[2]);
 
-			InvoiceItem invoiceItem = new InvoiceItem(product, quantity);
-			invoiceItems.add(invoiceItem);
+			InvoiceItemJSON invoiceItemJSON = new InvoiceItemJSON(productJSON, quantity);
+			invoiceItemJSONS.add(invoiceItemJSON);
 		}
-		invoice.items = invoiceItems;
-		return invoice;
+		invoiceJSON.items = invoiceItemJSONS;
+		return invoiceJSON;
 	}
 
 	public void validateScanner(String failureMessage) throws InvalidCSVException {

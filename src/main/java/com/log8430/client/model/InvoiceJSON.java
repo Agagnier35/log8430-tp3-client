@@ -3,10 +3,10 @@ package com.log8430.client.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Invoice {
-	public List<InvoiceItem> items = new ArrayList<>();
+public class InvoiceJSON {
+	public List<InvoiceItemJSON> items = new ArrayList<>();
 
-	public Invoice() {
+	public InvoiceJSON() {
 	}
 
 	@Override

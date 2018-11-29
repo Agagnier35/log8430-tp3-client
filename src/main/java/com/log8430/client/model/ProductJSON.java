@@ -1,15 +1,15 @@
 package com.log8430.client.model;
 
-public class Product {
+public class ProductJSON {
 	public String name;
 	public double price;
 
-	public Product(String name, double price) {
+	public ProductJSON(String name, double price) {
 		this.name = name;
 		this.price = price;
 	}
 
-	public Product() {
+	public ProductJSON() {
 	}
 
 	@Override

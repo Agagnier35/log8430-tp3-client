@@ -1,10 +1,16 @@
 package com.log8430.client;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.ws.rs.client.*;
-import javax.ws.rs.core.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.logging.LoggingFeature;
+import org.glassfish.jersey.logging.LoggingFeature.Verbosity;
 
 import com.log8430.client.model.InvoiceJSON;
 

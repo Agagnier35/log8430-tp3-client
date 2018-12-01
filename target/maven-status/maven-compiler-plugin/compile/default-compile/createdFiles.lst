@@ -1,8 +1,0 @@
-com\log8430\client\RestClient.class
-com\log8430\client\FileReader\FileReader.class
-com\log8430\client\model\InvoiceItemJSON.class
-com\log8430\client\WebApplication.class
-com\log8430\client\model\MostBoughtProductJSON.class
-com\log8430\client\FileReader\InvalidCSVException.class
-com\log8430\client\model\ProductJSON.class
-com\log8430\client\model\InvoiceJSON.class

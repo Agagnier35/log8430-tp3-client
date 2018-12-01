@@ -7,6 +7,7 @@ import javax.ws.rs.core.Response;
 
 import com.log8430.client.FileReader.FileReader;
 import com.log8430.client.model.InvoiceJSON;
+import com.log8430.client.model.MostBoughtProductJSON;
 
 public class WebApplication {
 
@@ -39,7 +40,7 @@ public class WebApplication {
 				case "get": {
 					Response response = client.getMostBoughtProduct();
 					System.out.println(response.getStatus());
-					System.out.println(response.getEntity());
+					System.out.println(response.readEntity(MostBoughtProductJSON.class).toString());
 					break;
 				}
 				case "exit": {
